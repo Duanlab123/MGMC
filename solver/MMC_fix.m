@@ -17,37 +17,12 @@ zstar=zbar.*(nphi);
 %s1=sum(nphi.*nphi,1);
 zstar=sum(zstar,1)./s1;
 
-ux=U1ch(bnd_idx(:,1),:)-U1ch(bnd_idx(:,2),:);
-uy=U1ch(bnd_idy(:,1),:)-U1ch(bnd_idy(:,2),:);
-% vx=nphi(bnd_idx(:,1),:)-nphi(bnd_idx(:,2),:);
-% vy=nphi(bnd_idy(:,1),:)-nphi(bnd_idy(:,2),:);
-vx=vx_1;
-vy=vy_1;
-c=zeros(1,size(ux,2));
-%%%%%%%%%%%%%%%%%%%%%%%%%iteration%%%%%%%%%%%%%%%%%%%%%%
-A1=vx.^2+vy.^2;
-a=ones(size(ux,1),1);
-C1=ux.*vx+uy.*vy;
-for iter=1:5
-    tmpc=a*c;
-    ucx=ux+tmpc.*vx;
-    ucy=uy+tmpc.*vy;
-    B1=ucx.^2+ucy.^2+1e-4;
-    B1=sqrt(B1);
-    A=A1./B1;
-    firs=sum(A,1);
-    C=C1./B1;
-    sec=sum(C,1);
-    % c=c-s1.*(c-zstar)+alpha*(firs+sec);
-    c=(s1.*zstar-alpha.*sec)./(alpha.*firs+s1);
-end
-%--------------------------------------------------
+
 mu=1/level;
-[dist,add_2,C_matrix,C1]=pre_mean_filter(uc1,pr,mcpara1, u1ch_mid1);
+[dist,add_2,C_matrix,C1]=pre_mean_filter(uc1,pr,mcpara1, u1ch_mid1,zstar,alpha,s1,ux,uy,vx,vy);
 c2=zeros(1,size(ux,2));
 c3=c2;
-%idx2=C_matrix>0;
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 for k=1:1
 c_old=c2;
 add=C_matrix*c2*(-0.75);
@@ -73,7 +48,7 @@ if norm(abs(add_c),'inf')<1e-1
     break
 end
 end
-c =0.3*c+0.7*c3;
+c =c3;
 dc1=kron(reshape(c,nc,nr)',ones(pr,pc));
  
 dU1=dc1.*dv1;

@@ -44,23 +44,9 @@ if norm(abs(add_c),'inf')<1e-1
     break
 end
 end
-c3=0.1*c3;
-ux=U1ch(bnd_idx(:,1),:)-U1ch(bnd_idx(:,2),:);
-uy=U1ch(bnd_idy(:,1),:)-U1ch(bnd_idy(:,2),:);
-vx=vx_1;vy=vy_1;
-z1=zeros(1,size(ux,2));
-A1=vx.^2+vy.^2;
-a=ones(size(ux,1),1);
-C1=ux.*vx+uy.*vy;
-tmp=a*z1;
-z1x=ux+tmp.*vx;
-z1y=uy+tmp.*vy;
-B1=sqrt(z1x.^2+z1y.^2+1e-4);
-T1=sum(A1./B1,1);
-C=C1./B1;
-T2=sum(C,1);
-z1=(s1*zstar-alpha*T2)./(alpha*T1+s1);
-c =c3+z1;
+
+
+c =0.5*c3;
 dc1=kron(reshape(c,nc,nr)',ones(pr,pc));
  
 dU1=dc1.*dv1;

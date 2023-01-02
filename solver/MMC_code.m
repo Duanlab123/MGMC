@@ -3,7 +3,7 @@ noise=f;
 [nrow,ncol]=size(noise);
 u=zeros(nrow,ncol);
 num_iter =10;
-num_outer=100;
+num_outer=30;
 J0=energy_ROF(u,noise,alpha);
 Energy(1)=J0;
  
@@ -34,7 +34,7 @@ end
 Energy(count,1)=energy_ROF(u,noise,alpha);
 Energy_out(outer_iter)=energy_ROF(u,noise,alpha);
 error_out(outer_iter)=norm(u-u_out_old,'fro')/norm(u,'fro');        
-if error_out(outer_iter)<1e-5
+if error_out(outer_iter)<1e-3
      break
 end 
 end

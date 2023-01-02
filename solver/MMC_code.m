@@ -28,7 +28,7 @@ for level=max_level:-1:1
                 break
             end            
       end            
-    disp(['level=' num2str(level) 'iteration number=' num2str(ii) 'psnr=' num2str( psnr1(count-2))  ]);
+  
 end
 
 Energy(count,1)=energy_ROF(u,noise,alpha);

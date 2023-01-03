@@ -1,4 +1,4 @@
-function [dist,add_2,C_matrix,C1]=pre_mean_filter(uc,pr,mcpara,u1ch_mid,U1ch,bnd_idx,bnd_idy,vx_1,vy_1,alpha,s1,alpha)
+function [dist,add_2,C_matrix,C11]=pre_mean_filter(uc,pr,mcpara,u1ch_mid,U1ch,bnd_idx,bnd_idy,vx_1,vy_1,alpha,s1,alpha)
 para1=mcpara.para1;
 para2=mcpara.para2;
 para3=mcpara.para3;
@@ -6,7 +6,7 @@ para4=mcpara.para4;
 para5=mcpara.para5;
 para6=mcpara.para6;
 C11=mcpara.C;
-C1=0.1*mcpara.C1;
+C2=0.1*mcpara.C1;
 C_matrix=mcpara.C_matrix;
 A_part3=mcpara.A_part3;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,7 +46,7 @@ sec=sqrt(A.^2+B.^2+C11.^2);
 %%%%%%%%%%%%%%%%%
 add_2=sec;%.*third;
 dist=first./add_2;
-dist=2*(dist.*C1) +d1;
+dist=2*(dist.*C2) +d1;
 %%%%%%%%%%%%%%%%%%%%%%%
 
 

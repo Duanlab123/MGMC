@@ -34,7 +34,7 @@ end
 Energy(count,1)=energy_ROF(u,noise,alpha);
 Energy_out(outer_iter)=energy_ROF(u,noise,alpha);
 error_out(outer_iter)=norm(u-u_out_old,'fro')/norm(u,'fro');        
-if error_out(outer_iter)<1e-3
+if error_out(outer_iter)<1e-5
      break
 end 
 end

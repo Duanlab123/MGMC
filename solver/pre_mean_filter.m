@@ -1,4 +1,4 @@
-function [dist,add_2,C_matrix,C11]=pre_mean_filter(uc,pr,mcpara,u1ch_mid,U1ch,bnd_idx,bnd_idy,vx_1,vy_1,alpha,s1,alpha)
+function [dist,add_2,C_matrix,C11]=pre_mean_filter(uc,pr,mcpara,u1ch_mid,U1ch,bnd_idx,bnd_idy,vx_1,vy_1,alpha,s1,zstar)
 para1=mcpara.para1;
 para2=mcpara.para2;
 para3=mcpara.para3;

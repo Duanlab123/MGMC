@@ -29,7 +29,7 @@ A=A1./B1;
 firs=sum(A,1);
 C=C1./B1;
 sec=sum(C,1);
-d1=(s1.*zstar-alpha.*sec)./(alpha.*firs+s1);
+d1=(-alpha.*sec)./(alpha.*firs+s1);
 A_part1=U2_half-U3;
 A_part2=U1_half-U3;
 A=A_part1.*para1-A_part2.*para2;
@@ -46,7 +46,8 @@ sec=sqrt(A.^2+B.^2+C11.^2);
 %%%%%%%%%%%%%%%%%
 add_2=sec;%.*third;
 dist=first./add_2;
-dist=2*(dist.*C2) +d1;
+a=ones(size(dist,1),1);
+dist=2*(dist.*C2) +a*d1;
 %%%%%%%%%%%%%%%%%%%%%%%
 
 

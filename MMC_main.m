@@ -5,8 +5,8 @@ add path solver
 load('lena.mat')
 u0=double(im);
  
-f = u0+10*randn(size(u0));
-max_level=4; alpha=15;
+f = u0+20*randn(size(u0));
+max_level=4; alpha=30;
 tic
 output= MMC_code(f,u0,alpha,max_level);  
 toc

@@ -6,7 +6,7 @@ para4=mcpara.para4;
 para5=mcpara.para5;
 para6=mcpara.para6;
 C11=mcpara.C;
-C2=0.1*mcpara.C1;
+C2=mcpara.C1;
 C_matrix=mcpara.C_matrix;
 A_part3=mcpara.A_part3;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

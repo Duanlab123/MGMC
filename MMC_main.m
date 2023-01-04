@@ -1,7 +1,7 @@
 %Fast Multi-grid Methods for Minimizing Curvature Energies
 % 
 clear all
-add path solver
+addpath solver
 load('lena.mat')
 u0=double(im);
  
